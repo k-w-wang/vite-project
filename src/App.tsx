@@ -1,9 +1,9 @@
-import React, { useState } from "react"
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import "./App.css";
 
-function App():any {
-  const [count, setCount] = useState(0)
+function App(): any {
+  const [count, setCount] = useState(1);
 
   return (
     <div className="App">
@@ -25,10 +25,10 @@ function App():any {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click on the Vite and React logos to learn m ore
       </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
