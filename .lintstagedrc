@@ -1,0 +1,10 @@
+{
+    "src/**/!(*.min).js": [
+      "eslint --fix"
+    ],
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix"
+    ],
+    "src/**/*.{ts,js,vue,html,css,scss,sass,stylus}": [
+    ]
+}
