@@ -11,9 +11,19 @@ jobs:
       - name: Checkout  ️ # 将代码拉取到虚拟机
         uses: actions/checkout@v3
 
-      - name: Install    # 安装依赖、打包，如果提前已打包好无需这一步
-        run: |
-          npm install
+      # 添加缓存，逻辑和CI Workflow里的一样
+      - name: Cache
+        id: cache-dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            **/node_modules
+          key: ${{runner.OS}}-${{hashFiles('**/yarn.lock')}}
+
+      # 安装依赖。命中缓存则跳过此步
+      - name: Installing
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: npm install
 
       - name: eslint    # 安装依赖、打包，如果提前已打包好无需这一步
         run: |
