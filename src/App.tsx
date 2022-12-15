@@ -6,6 +6,7 @@ const App: React.FC = () => {
   const [count, setCount] = useState(2);
 
   useEffect(() => {
+    console.log("useEffect");
     const promise: Promise<number> = new Promise<number>((resolve, reject) => {
       resolve(123);
     });
