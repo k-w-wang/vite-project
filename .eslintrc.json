@@ -16,14 +16,6 @@
   },
   "plugins": ["react"],
   "rules": {
-    "@typescript-eslint/ban-types": [
-      2,
-      {
-        "types": {
-          "any": "Don't use 'any' because it is unsafe"
-        },
-        "extendDefaults": true
-      }
-    ]
+    "@typescript-eslint/no-explicit-any": "error"
   }
 }
