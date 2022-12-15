@@ -9,7 +9,7 @@ const App: React.FC = () => {
     const promise: Promise<number> = new Promise<number>((resolve, reject) => {
       resolve(123);
     });
-    const getPromise: () => Promise<number> = async () => {
+    const getPromise: () => Promise<any> = async () => {
       const num = await promise;
       // 此处可直接拿到结果
       console.log("num", num);
