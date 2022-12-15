@@ -7,11 +7,9 @@ const App: React.FC = () => {
 
 	useEffect(() => {
 		console.log("useEffect");
-		const promise: Promise<number> = new Promise<number>(
-			(resolve, reject) => {
-				resolve(123);
-			}
-		);
+		const promise: Promise<number> = new Promise<number>((resolve, reject) => {
+			resolve(123);
+		});
 		const getPromise: () => Promise<number> = async () => {
 			const num = await promise;
 			// 此处可直接拿到结果
@@ -34,11 +32,7 @@ const App: React.FC = () => {
 					<img src="/vite.svg" className="logo" alt="Vite logo" />
 				</a>
 				<a href="https://reactjs.org" target="_blank" rel="noreferrer">
-					<img
-						src={reactLogo}
-						className="logo react"
-						alt="React logo"
-					/>
+					<img src={reactLogo} className="logo react" alt="React logo" />
 				</a>
 			</div>
 			<h1> Vite + React </h1>
