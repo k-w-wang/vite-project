@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
-function App(): any {
-  const [count, setCount] = useState(1);
+const App: React.FC = () => {
+  const [count, setCount] = useState(2);
 
   return (
     <div className="App">
@@ -29,6 +29,6 @@ function App(): any {
       </p>
     </div>
   );
-}
+};
 
 export default App;
