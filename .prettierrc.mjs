@@ -3,5 +3,6 @@ module.exports = {
   rules: {
     semi: "error", // 行尾必须有分号
     tabWidth: 4,
+    useTabs: true
   },
 };
