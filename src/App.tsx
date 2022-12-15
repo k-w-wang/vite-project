@@ -17,9 +17,10 @@ const App: React.FC = () => {
       // return 会当作resolve
       return num;
     };
-    const getTwoPromise: () => Promise<void> = async () => {
+    const getTwoPromise: () => Promise<number> = async () => {
       const twoNum = await getPromise();
       console.log("twoNum", twoNum);
+      return twoNum;
     };
     void getTwoPromise();
   }, []);
