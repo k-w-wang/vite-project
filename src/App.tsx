@@ -1,9 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
 const App: React.FC = () => {
   const [count, setCount] = useState(2);
+
+  useEffect(() => {
+    const promise: Promise<any> = new Promise<any>((resolve, reject) => {
+      resolve(123);
+    });
+    const getPromise: () => Promise<any> = async () => {
+      const num = await promise;
+      // 此处可直接拿到结果
+      console.log("num", num);
+      // return 会当作resolve
+      return num;
+    };
+    const getTwoPromise: () => Promise<any> = async () => {
+      const twoNum = await getPromise();
+      console.log("twoNum", twoNum);
+    };
+    getTwoPromise()
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="App">

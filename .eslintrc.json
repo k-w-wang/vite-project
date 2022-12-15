@@ -1,23 +1,29 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "standard-with-typescript",
-        "prettier"
-    ],
-    "overrides": [
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module",
-        "project": ["tsconfig.json"]
-    },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-    }
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "standard-with-typescript",
+    "prettier"
+  ],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["tsconfig.json"]
+  },
+  "plugins": ["react"],
+  "rules": {
+    "@typescript-eslint/ban-types": [
+      2,
+      {
+        "types": {
+          "any": "Don't use 'any' because it is unsafe"
+        },
+        "extendDefaults": true
+      }
+    ]
+  }
 }
