@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import "./App.css";
 
 const App: React.FC = () => {
-  const [count, setCount] = useState<number>(2);
+  const [count, setCount] = useState(2);
 
   useEffect(() => {
     const promise: Promise<number> = new Promise<number>((resolve, reject) => {
