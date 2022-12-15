@@ -20,11 +20,7 @@ const App: React.FC = () => {
       const twoNum = await getPromise();
       console.log("twoNum", twoNum);
     };
-    getTwoPromise()
-      .then()
-      .catch((err) => {
-        console.log(err);
-      });
+    void getTwoPromise();
   }, []);
 
   return (
