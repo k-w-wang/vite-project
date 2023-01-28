@@ -17,6 +17,7 @@
 	"plugins": ["react"],
 	"rules": {
 		"@typescript-eslint/no-explicit-any": "error",
-		"@typescript-eslint/triple-slash-reference": "off"
+		"@typescript-eslint/triple-slash-reference": "off",
+		"@typescript-eslint/strict-boolean-expressions": "warn"
 	}
 }

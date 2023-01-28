@@ -1,53 +1,71 @@
-import React, { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
+import React, { useState } from "react";
+import {
+	MenuFoldOutlined,
+	MenuUnfoldOutlined,
+	UploadOutlined,
+	UserOutlined,
+	VideoCameraOutlined,
+} from "@ant-design/icons";
+import { Layout, Menu, theme } from "antd";
 import "./App.css";
 
-const App: React.FC = () => {
-	const [count, setCount] = useState(1);
+const { Header, Sider, Content } = Layout;
 
-	useEffect(() => {
-		console.log("useEffect");
-		const promise: Promise<number> = new Promise<number>((resolve, reject) => {
-			resolve(123);
-		});
-		const getPromise: () => Promise<number> = async () => {
-			const num = await promise;
-			// 此处可直接拿到结果
-			console.log("num", num);
-			// return 会当作resolve
-			return num;
-		};
-		const getTwoPromise: () => Promise<number> = async () => {
-			const twoNum = await getPromise();
-			console.log("twoNum", twoNum);
-			return twoNum;
-		};
-		void getTwoPromise();
-	}, []);
+const App: React.FC = () => {
+	const [collapsed, setCollapsed] = useState(false);
+	const {
+		token: { colorBgContainer },
+	} = theme.useToken();
 
 	return (
-		<div className="App">
-			<div>
-				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-					<img src="/vite.svg" className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://reactjs.org" target="_blank" rel="noreferrer">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-			</div>
-			<h1> Vite + React </h1>
-			<div className="card">
-				<button onClick={() => setCount((count: number) => count + 1)}>
-					count is {count}
-				</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<p className="read-the-docs">
-				Click on the Vite and React logos to learn m ore
-			</p>
-		</div>
+		<Layout className="root-layout">
+			<Sider trigger={null} collapsible collapsed={collapsed}>
+				<div className="logo" />
+				<Menu
+					theme="dark"
+					mode="inline"
+					defaultSelectedKeys={["1"]}
+					items={[
+						{
+							key: "1",
+							icon: <UserOutlined />,
+							label: "nav 1",
+						},
+						{
+							key: "2",
+							icon: <VideoCameraOutlined />,
+							label: "nav 2",
+						},
+						{
+							key: "3",
+							icon: <UploadOutlined />,
+							label: "nav 3",
+						},
+					]}
+				/>
+			</Sider>
+			<Layout className="site-layout">
+				<Header style={{ padding: 0, background: colorBgContainer }}>
+					{React.createElement(
+						collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+						{
+							className: "trigger",
+							onClick: () => setCollapsed(!collapsed),
+						}
+					)}
+				</Header>
+				<Content
+					style={{
+						margin: "24px 16px",
+						padding: 24,
+						minHeight: 280,
+						background: colorBgContainer,
+					}}
+				>
+					Content
+				</Content>
+			</Layout>
+		</Layout>
 	);
 };
 
